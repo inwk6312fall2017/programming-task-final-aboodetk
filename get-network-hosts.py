@@ -51,7 +51,7 @@ print(r_json)
 ticket = r_json["response"]["serviceTicket"]
 
 # URL for Host REST API call to get list of exisitng hosts on the network.
-url = "https://" + controller + "/api/v1/host?limit=1&offset=1"
+url = "https://" + controller + "/api/v1/host"
 
 #Content type must be included in the header as well as the ticket
 header = {"content-type": "application/json", "X-Auth-Token":ticket}
@@ -66,4 +66,19 @@ print (json.dumps(response.json(), indent=4, separators=(',', ': ')))
 
 r_resp=response.json()
 
+print('first host Info')
 print(r_resp["response"][0]["hostIp"])
+print(r_resp["response"][0]["hostMac"])
+print(r_resp["response"][0]["id"])
+
+print('\n')
+print('second host info')
+print(r_resp["response"][1]["hostIp"])
+print(r_resp["response"][1]["hostMac"])
+print(r_resp["response"][1]["id"])
+
+print('\n')
+print('third host info')
+print(r_resp["response"][2]["hostIp"])
+print(r_resp["response"][2]["hostMac"])
+print(r_resp["response"][2]["id"])
