@@ -1,3 +1,8 @@
+#import certifi
+#import urllib3
+#http = urllib3.PoolManager(cert_reqs='CERT_REQUIRED',ca_certs=certifi.where())
+
+
 ###i took the code for getting the ticket from the getnetworkdevices file 
 
 # import requests library
@@ -34,4 +39,22 @@ def getTicket():
 
 ###now create the required function 
 
+def get_networkDevices_count(ticket):
+
+# URL for network-device REST API call to get a count of network devices.
+	url = "https://" + controller + "/api/v1/network-device/config/count"
+
+	#Content type as well as the ticket must be included in the header 
+	header = {"content-type": "application/json", "X-Auth-Token":ticket}
+
+	# this statement performs a GET on the specified network device url
+	response = requests.get(url, headers=header, verify=False)
+
+	print ("Network Devices Count = ")
+	print(response)
+	#r_json=json.dumps(response.json())
+	#print(r_json)
+
+theTicket=getTicket()
+get_networkDevices_count(theTicket)
 
