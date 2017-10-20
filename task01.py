@@ -8,12 +8,16 @@ def longest_word():
 
 ###creating an empty string that would be used to have the biggest word
  l1=""
-
+ l2=""
+ l3=""
 ###looping through the Book1
  for line in file1:
   for word in line.split():
-   
-
+###if any word that is bigger than the prev one will be in l1
+   if len(word)>len(l1):
+    l1=word
+ print(l1) 
+ for line1 in file2 
 
 
 
